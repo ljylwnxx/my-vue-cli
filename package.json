@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
-    "serve": "webpack serve"
+    "serve": "webpack serve --config ./build/webpack.dev",
+    "build": "webpack --config ./build/webpack.prod"
   },
   "repository": {
     "type": "git",
@@ -33,7 +33,8 @@
     "vue-template-compiler": "^2.6.14",
     "webpack": "^5.76.3",
     "webpack-cli": "^5.0.1",
-    "webpack-dev-server": "^4.13.1"
+    "webpack-dev-server": "^4.13.1",
+    "webpack-merge": "^5.8.0"
   },
   "dependencies": {
     "mini-css-extract-plugin": "^2.7.5"
