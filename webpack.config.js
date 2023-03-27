@@ -19,6 +19,12 @@ module.exports = {
     // 每次打包前自动清除旧的dist
     clean: true,
   },
+  devServer: {
+    // 自定义端口号
+    port:8000,
+    // 自动打开浏览器
+    open: true
+  },
   // 插件都放 plugins 中
   plugins: [
     new HtmlWebpackPlugin({
@@ -85,5 +91,15 @@ module.exports = {
         use: 'vue-loader',
       }
     ]
-  }
+  },
+  resolve: {
+    // 路径别名
+    alias: {
+      '@': path.resolve('./src'),
+      assets: '~/assets',
+      tools: '~/tools'
+    },
+    // 引入文件时省略后缀
+    extensions: ['.js', '.ts', '.less', '.vue'],
+  },
 }
