@@ -1,6 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const { VueLoaderPlugin } = require('vue-loader')
 
 module.exports = {
   // 模式 开发模式
@@ -32,7 +33,8 @@ module.exports = {
         // 将css代码输出到dist/styles文件夹下
         filename: 'styles/chunk-[contenthash].css',
         ignoreOrder: true,
-      })
+      }),
+      new VueLoaderPlugin()
   ],
   module: {
     rules: [
@@ -77,6 +79,10 @@ module.exports = {
         use: [
           'babel-loader'
         ],
+      },
+      {
+        test: /\.vue$/,
+        use: 'vue-loader',
       }
     ]
   }
